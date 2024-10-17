@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { getCoinMarkets } from "../../api";
 import { useState, useEffect } from "react";
+import formatMarketCap from "../Functions/formatMcap";
 
 const Crypto = () => {
   const [coinMarkets, setCoinMarkets] = useState([]);
@@ -17,18 +18,22 @@ const Crypto = () => {
     <h2>Loading...</h2>
   ) : (
     <div className="coins">
-      {coinMarkets.map((coin) => {
-        return (
-        <Link to={`/crypto${coin.id}`} key={coin.id}>
-            <div className="coin-list">
-                <li className="coin-item" key={coin.id}>
-                    <p>{coin.market_cap_rank}</p>
-                    <p>{coin.name}</p>
-                    <p>{coin.current_price.toLocaleString()}</p>
-                </li>
-            </div>
-        </Link>
-      )})}
+      <div className="scrollable-box">
+        {coinMarkets.map((coin) => {
+          return (
+            <Link to={`/crypto/${coin.id}`} key={coin.id} className="coin-link">
+              <div className="coin-item">
+                <ul className="coin-list">
+                  <li className="coin-rank">{coin.market_cap_rank}</li>
+                  <li className="coin-name">{coin.symbol.toUpperCase()}</li>
+                  <li className="coin-price">${coin.current_price}</li>
+                  <li className="coin-marketcap">{formatMarketCap(coin.market_cap)}</li>
+                </ul>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };

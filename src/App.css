@@ -2,6 +2,12 @@
   position: sticky;
 }
 
+body {
+  background-color: #45818e;
+  font-family: 'Roboto', sans-serif;
+  color: #f1f1f1; 
+}
+
 .home {
   background-color: #45818e; 
   display: flex; 
@@ -48,3 +54,79 @@
   padding-bottom: 47px;
 }
 
+.scrollable-box {
+  width: 85%; 
+  height: 60vh; 
+  margin: auto;
+  padding: 20px;
+  overflow-y: auto; 
+  background-color: #333;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+  position: absolute;
+  bottom: 30px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.coin-item {
+  background-color:#016a70; 
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
+  margin: 10px 0;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  transition: transform 0.2s ease, background-color 0.3s ease; 
+}
+
+.coin-item:hover {
+  transform: scale(1.02); 
+  background-color: #f5f5f5; 
+}
+
+.coin-rank, .coin-name, .coin-price, .coin-marketcap {
+  font-size: 1.1rem;
+  color: #f5f5f5;
+  font-weight: 500;
+  margin: 0 15px;
+}
+
+.coin-rank {
+  font-size: 1.3rem;
+  font-weight: 700; 
+}
+
+.scrollable-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-box::-webkit-scrollbar-thumb {
+  background-color: #016a70; 
+  border-radius: 10px;
+}
+
+.scrollable-box::-webkit-scrollbar-track {
+  background: #333;
+}
+
+.coin-link {
+  text-decoration: none;
+  color: inherit; 
+}
+
+.coin-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; 
+}
