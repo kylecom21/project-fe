@@ -130,3 +130,14 @@ a {
   text-decoration: none;
   color: inherit; 
 }
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  width: 90%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  align-items: center;
+  display: flex;
+  text-align: center;
+}
