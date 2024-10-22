@@ -25,4 +25,16 @@ const getCoinMarkets = async () => {
   }
 };
 
-export {getCoinMarkets}
+const searchCoins = async (query) => {
+  try {
+    const response = await cryptoApi.get("/search", {
+      params: { query }, 
+    });
+    return response.data.coins; 
+  } catch (error) {
+    console.error("Error fetching search results:", error);
+    throw error;
+  }
+};
+
+export {getCoinMarkets, searchCoins}
