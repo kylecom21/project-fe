@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { searchCoins } from "../../api";
 
 const CryptoSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -25,7 +26,7 @@ const CryptoSearch = () => {
   };
 
   return (
-    <div>
+    <div className="search-container">
       <input
         type="text"
         placeholder="Search for a cryptocurrency..."
@@ -34,6 +35,9 @@ const CryptoSearch = () => {
         onKeyDown={handleSearch}
         className="search-input"
       />
+      <button onClick={handleSearch} className="search-button">
+        Search
+      </button>
     </div>
   );
 };

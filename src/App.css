@@ -4,15 +4,15 @@
 
 body {
   background-color: #45818e;
-  font-family: 'Roboto', sans-serif;
-  color: #f1f1f1; 
+  font-family: "Roboto", sans-serif;
+  color: #f1f1f1;
 }
 
 .home {
-  background-color: #45818e; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
+  background-color: #45818e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   height: 85vh;
   text-align: center;
@@ -20,34 +20,34 @@ body {
 }
 
 .button-container {
-  display: flex; 
-  flex-direction: column; 
-  gap: 15px; 
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .button {
-  background-color: white; 
-  color: #333; 
-  font-size: 24px; 
+  background-color: white;
+  color: #333;
+  font-size: 24px;
   padding: 14px;
-  border-radius: 30px; 
-  text-align: center; 
+  border-radius: 30px;
+  text-align: center;
   width: 260px;
   cursor: pointer;
   border: 2px solid #333;
-  transition: background-color 0.3s, transform 0.2s; 
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .button:hover {
-  background-color: #f0f0f0; 
-  transform: scale(1.05); 
+  background-color: #f0f0f0;
+  transform: scale(1.05);
 }
 
 .coins {
   background-color: #45818e;
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   height: 85vh;
   text-align: center;
@@ -55,39 +55,42 @@ body {
 }
 
 .scrollable-box {
-  width: 85%; 
-  height: 60vh; 
+  width: 85%;
+  height: 60vh;
   margin: auto;
   padding: 20px;
-  overflow-y: auto; 
+  overflow-y: auto;
   background-color: #333;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   position: absolute;
-  bottom: 30px; 
+  bottom: 30px;
   left: 50%;
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .coin-item {
-  background-color:#016a70; 
+  background-color: #016a70;
   border-radius: 12px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   margin: 10px 0;
   padding: 15px;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
-  transition: transform 0.2s ease, background-color 0.3s ease; 
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .coin-item:hover {
-  transform: scale(1.02); 
-  background-color: #f5f5f5; 
+  transform: scale(1.02);
+  background-color: #f5f5f5;
 }
 
-.coin-rank, .coin-name, .coin-price, .coin-marketcap {
+.coin-rank,
+.coin-name,
+.coin-price,
+.coin-marketcap {
   font-size: 1.1rem;
   color: #f5f5f5;
   font-weight: 500;
@@ -96,7 +99,7 @@ body {
 
 .coin-rank {
   font-size: 1.3rem;
-  font-weight: 700; 
+  font-weight: 700;
 }
 
 .scrollable-box::-webkit-scrollbar {
@@ -104,7 +107,7 @@ body {
 }
 
 .scrollable-box::-webkit-scrollbar-thumb {
-  background-color: #016a70; 
+  background-color: #016a70;
   border-radius: 10px;
 }
 
@@ -114,7 +117,7 @@ body {
 
 .coin-link {
   text-decoration: none;
-  color: inherit; 
+  color: inherit;
 }
 
 .coin-list {
@@ -128,7 +131,7 @@ body {
 
 a {
   text-decoration: none;
-  color: inherit; 
+  color: inherit;
 }
 
 .search-input {
@@ -136,8 +139,37 @@ a {
   font-size: 16px;
   width: 90%;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid #333;
   align-items: center;
   display: flex;
   text-align: center;
+
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.search-button { 
+  padding: 10px 20px;
+  background-color: #016a70;
+  color: white;
+  border: 2px solid #333;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.search-button:hover {
+  background-color: #016a70;
 }
