@@ -6,23 +6,31 @@ const CryptoSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
+
   const handleSearch = async (event) => {
-    if (event.key === "Enter") {
-      const query = searchTerm.trim();
-      if (query) {
-        try {
-          const results = await searchCoins(query);
-          if (results.length > 0) {
-            const coinId = results[0].id;
-            navigate(`/crypto/${coinId}`);
-          } else {
-            console.error("No coins found.");
-          }
-        } catch (error) {
-          console.error("Error during search:", error);
+    if (event.type === "keydown" && event.key !== "Enter") {
+      return; 
+    }
+
+    const query = searchTerm.trim();
+    if (query) {
+      try {
+        const results = await searchCoins(query);
+        if (results.length > 0) {
+          const coinId = results[0].id;
+          navigate(`/crypto/${coinId}`);
+        } else {
+          console.error("No coins found.");
         }
+      } catch (error) {
+        console.error("Error during search:", error);
       }
     }
+  };
+
+  const handleButtonClick = (event) => {
+    event.preventDefault();  
+    handleSearch(event);
   };
 
   return (
@@ -35,8 +43,12 @@ const CryptoSearch = () => {
         onKeyDown={handleSearch}
         className="search-input"
       />
-      <button onClick={handleSearch} className="search-button">
-        Search
+      <button onClick={handleButtonClick} className="search-button">
+        <img
+          src="src/imgs/search-icon.png"
+          alt="Search"
+          className="search-icon"
+        />
       </button>
     </div>
   );
