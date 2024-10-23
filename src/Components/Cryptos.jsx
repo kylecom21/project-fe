@@ -19,6 +19,12 @@ const Cryptos = () => {
     <h2>Loading...</h2>
   ) : (
     <div>
+      <div>
+        {coinMarkets.map((coin) => {
+          return (
+          <p>{coin.market_cap_percentage}</p>
+          )})}
+      </div>
       <CryptoSearch />
       <div className="coins">
         <div className="scrollable-box">
