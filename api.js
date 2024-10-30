@@ -37,4 +37,18 @@ const searchCoins = async (query) => {
   }
 };
 
-export {getCoinMarkets, searchCoins}
+const getCoinDetails = async (id) => {
+  try {
+    const response = await cryptoApi.get(`/coins/${id}`, {
+      headers: {
+        accept: 'application/json'
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching coin details:', error);
+    throw error;
+  }
+};
+
+export {getCoinMarkets, searchCoins, getCoinDetails}

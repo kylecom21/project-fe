@@ -169,3 +169,58 @@ a {
   width: 90%;
   margin-bottom: 10px;
 }
+
+.coin-logo {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.coin-page {
+  padding: 20px;
+}
+
+.coin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.crypto-logo {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.coin-stats {
+  margin-top: 20px;
+}
+
+.chart, .extra-info, .buy-button {
+  margin-top: 20px;
+}
+
+.buy-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.percentage-change {
+  border: 1px solid #fff;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  display: inline-block;
+  margin-left: 10px;
+}
+
