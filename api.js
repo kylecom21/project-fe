@@ -28,9 +28,9 @@ const getCoinMarkets = async () => {
 const searchCoins = async (query) => {
   try {
     const response = await cryptoApi.get("/search", {
-      params: { query }, 
+      params: { query },
     });
-    return response.data.coins; 
+    return response.data.coins;
   } catch (error) {
     console.error("Error fetching search results:", error);
     throw error;
@@ -41,14 +41,32 @@ const getCoinDetails = async (id) => {
   try {
     const response = await cryptoApi.get(`/coins/${id}`, {
       headers: {
-        accept: 'application/json'
-      }
+        accept: "application/json",
+      },
     });
     return response.data;
   } catch (error) {
-    console.error('Error fetching coin details:', error);
+    console.error("Error fetching coin details:", error);
     throw error;
   }
 };
 
-export {getCoinMarkets, searchCoins, getCoinDetails}
+const getHistoricalPriceData = async (id, currency = "usd", days = 7) => {
+  try {
+    const response = await cryptoApi.get(`/coins/${id}/market_chart`, {
+      params: {
+        vs_currency: currency,
+        days: days,
+      },
+    });
+    return response.data.prices.map((price) => ({
+      x: new Date(price[0]),
+      y: price[1],
+    }));
+  } catch (error) {
+    console.error("Error fetching historical price data:", error);
+    throw error;
+  }
+};
+
+export { getCoinMarkets, searchCoins, getCoinDetails, getHistoricalPriceData };

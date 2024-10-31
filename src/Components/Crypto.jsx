@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCoinDetails } from "../../api";
 import formatMarketCap from "../Functions/formatMcap";
+import { getHistoricalPriceData } from "../../api";
 
 const Crypto = () => {
   const { id } = useParams();
