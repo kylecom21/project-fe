@@ -25,36 +25,36 @@ const Crypto = () => {
   return isLoading ? (
     <h2>Loading...</h2>
   ) : (
-    <div className="coin-page">
-      <div className="coin-header">
-        <img
-          src={coinData.image.large}
-          alt={`${coinData.id} logo`}
-          className="coin-logo"
-        />
-        <h1>{coinData.name}</h1>
-        <div className="coin-details">
-        <div className="percent-change-box">
-          <h2>{coinData.market_data.price_change_percentage_24h}%</h2>
-        </div>
-        </div>
-      </div>
-      <div className="crypto-stats">
-        <p>
-          <strong>Price: </strong> $
-          {coinData.market_data.current_price.usd.toLocaleString()}
-        </p>
-        <p>
-          <strong>Market Cap: </strong>
-          {formatMarketCap(coinData.market_data.market_cap.usd)}
-        </p>
-        <p>
-          <strong>Volume: </strong>
-          {formatMarketCap(coinData.market_data.total_volume.usd)}
-        </p>
-      </div>
-      <button className="buy-button">Buy</button>
+<div className="coin-page">
+  <div className="coin-header">
+    <img
+      src={coinData.image.large}
+      alt={`${coinData.id} logo`}
+      className="coin-logo"
+    />
+    <h1 className="coin-name">{coinData.name}</h1>
+    <div className="percent-change-box">
+      <h2>{coinData.market_data.price_change_percentage_24h.toFixed(2)}%</h2>
     </div>
+  </div>
+  
+  <div className="crypto-stats">
+    <p>
+      <strong>Price: </strong> $
+      {coinData.market_data.current_price.usd.toLocaleString()}
+    </p>
+    <p>
+      <strong>Market Cap: </strong>
+      {formatMarketCap(coinData.market_data.market_cap.usd)}
+    </p>
+    <p>
+      <strong>Volume: </strong>
+      {formatMarketCap(coinData.market_data.total_volume.usd)}
+    </p>
+  </div>
+  
+  <button className="buy-button">Buy</button>
+</div>
   );
 };
 
