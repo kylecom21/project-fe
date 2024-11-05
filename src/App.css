@@ -1,15 +1,16 @@
-.header {
-  position: sticky;
-}
-
 body {
-  background-color: #45818e;
+  background-color: #1F1F1F;
   font-family: "Roboto", sans-serif;
-  color: #f1f1f1;
+  color: #E0E0E0;
 }
 
-.home {
-  background-color: #45818e;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.home, .coins {
+  background-color: #2A2A2A;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,6 +18,8 @@ body {
   height: 85vh;
   text-align: center;
   padding-bottom: 47px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .button-container {
@@ -26,32 +29,21 @@ body {
 }
 
 .button {
-  background-color: white;
-  color: #333;
+  background-color: #007BFF;
+  color: #E0E0E0;
   font-size: 24px;
   padding: 14px;
   border-radius: 30px;
   text-align: center;
   width: 260px;
   cursor: pointer;
-  border: 2px solid #333;
+  border: 2px solid transparent;
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .button:hover {
-  background-color: #f0f0f0;
+  background-color: #0056b3;
   transform: scale(1.05);
-}
-
-.coins {
-  background-color: #45818e;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 85vh;
-  text-align: center;
-  padding-bottom: 47px;
 }
 
 .scrollable-box {
@@ -62,16 +54,16 @@ body {
   overflow-y: auto;
   background-color: #333;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   position: absolute;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .coin-item {
-  background-color: #016a70;
+  background-color: #2A2A2A;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   margin: 10px 0;
@@ -84,7 +76,7 @@ body {
 
 .coin-item:hover {
   transform: scale(1.02);
-  background-color: #f5f5f5;
+  background-color: #1E3A4C; /* Darker background on hover */
 }
 
 .coin-rank,
@@ -92,7 +84,7 @@ body {
 .coin-price,
 .coin-marketcap {
   font-size: 1.1rem;
-  color: #f5f5f5;
+  color: #E0E0E0;
   font-weight: 500;
   margin: 0 15px;
 }
@@ -100,24 +92,6 @@ body {
 .coin-rank {
   font-size: 1.3rem;
   font-weight: 700;
-}
-
-.scrollable-box::-webkit-scrollbar {
-  width: 8px;
-}
-
-.scrollable-box::-webkit-scrollbar-thumb {
-  background-color: #016a70;
-  border-radius: 10px;
-}
-
-.scrollable-box::-webkit-scrollbar-track {
-  background: #333;
-}
-
-.coin-link {
-  text-decoration: none;
-  color: inherit;
 }
 
 .coin-list {
@@ -129,9 +103,22 @@ body {
   margin: 0;
 }
 
-a {
+.coin-link {
   text-decoration: none;
   color: inherit;
+}
+
+.scrollable-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-box::-webkit-scrollbar-thumb {
+  background-color: #007BFF; 
+  border-radius: 10px;
+}
+
+.scrollable-box::-webkit-scrollbar-track {
+  background: #333;
 }
 
 .search-container {
@@ -143,12 +130,15 @@ a {
 }
 
 .search-input {
-  width: 250px;
+  width: 90%;
   padding: 10px;
   border-radius: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
   font-size: 16px;
   outline: none;
+  background-color: #2A2A2A;
+  color: #E0E0E0;
+  margin-bottom: 10px;
 }
 
 .search-button {
@@ -165,17 +155,12 @@ a {
   color: #333;
 }
 
-.search-input {
-  width: 90%;
-  margin-bottom: 10px;
-}
-
 .coin-page {
-  background-color: #3A6C81; /* Match background color */
+  background-color: #2A2A2A; 
   padding: 20px;
-  color: #ffffff; /* White text */
+  color: #E0E0E0; 
   font-family: Arial, sans-serif;
-  width: 300px; /* Set container width */
+  width: 90%; 
   border-radius: 10px;
   text-align: center;
 }
@@ -193,13 +178,8 @@ a {
   margin-right: 15px;
 }
 
-.coin-name {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
 .percent-change-box {
-  background-color: #1E3A4C; /* Background of percentage change box */
+  background-color: #1E3A4C; 
   padding: 8px 12px;
   border-radius: 8px;
   font-size: 0.9em;
@@ -216,7 +196,7 @@ a {
 }
 
 .buy-button {
-  background-color: #4CAF50; /* Green background for button */
+  background-color: #1E3A4C; 
   color: white;
   padding: 10px 0;
   font-size: 1.2em;
@@ -227,6 +207,5 @@ a {
 }
 
 .buy-button:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #45a049; 
 }
-

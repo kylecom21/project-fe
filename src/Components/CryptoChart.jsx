@@ -11,6 +11,7 @@ import {
   Legend,
 } from 'chart.js';
 import { getHistoricalPriceData } from "../../api";
+import { color } from 'chart.js/helpers';
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
@@ -27,10 +28,14 @@ const CryptoChart = ({ coinId }) => {
             {
               label: 'Price (USD)',
               data: data.map(point => point.y), 
-              fill: false,
-              backgroundColor: 'rgba(75,192,192,0.4)',
-              borderColor: 'rgba(75,192,192,1)',
+              fill: false, 
+              backgroundColor: 'rgba(255, 255, 255, 0)', 
+              borderColor: 'rgba(255, 255, 255, 1)', 
               tension: 0.1, 
+              pointBackgroundColor: 'rgba(255, 255, 255, 1)', 
+              pointBorderColor: 'rgba(255, 255, 255, 1)', 
+              pointRadius: 0.1, 
+              pointHoverRadius: 5,
             }
           ]
         });
@@ -47,15 +52,18 @@ const CryptoChart = ({ coinId }) => {
   return (
     <div style={{ width: '100%', height: '400px' }}>
       <Line 
-        data={chartData} 
-        options={{
-          responsive: true,
-          scales: {
-            x: { title: { display: true, text: 'Date' } },
-            y: { title: { display: true, text: 'Price (USD)' } }
-          },
-          plugins: {
-            legend: { display: true, position: 'top' },
+      data={chartData} 
+      options={{
+        responsive: true,
+        scales: {
+          x: { title: { display: true, text: 'Date', color: 'white' } },
+          y: { title: { display: true, text: 'Price (USD)', color: 'white' }, beginAtZero: false,tick:{
+            color:'white',
+            stepSize: 500,
+          } }
+        },
+        plugins: {
+          legend: { display: true, position: 'top', labels: { color: 'white' } },
           },
         }}
       />
