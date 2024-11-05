@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCoinDetails } from "../../api";
 import formatMarketCap from "../Functions/formatMcap";
-import { getHistoricalPriceData } from "../../api";
+import CryptoChart from "./CryptoChart";
 
 const Crypto = () => {
   const { id } = useParams();
@@ -54,6 +54,8 @@ const Crypto = () => {
     </p>
   </div>
   
+    <CryptoChart coinId={coinData.id}/>
+
   <button className="buy-button">Buy</button>
 </div>
   );
