@@ -196,7 +196,7 @@ a {
 }
 
 .buy-button {
-  background-color: #1E3A4C; 
+  background-color: #45a049; 
   color: white;
   padding: 10px 0;
   font-size: 1.2em;
@@ -206,7 +206,4 @@ a {
   width: 100%;
 }
 
-.buy-button:hover {
-  background-color: #45a049; 
-}
 
