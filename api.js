@@ -69,4 +69,14 @@ const getHistoricalPriceData = async (id, currency = "usd", days = 7) => {
   }
 };
 
-export { getCoinMarkets, searchCoins, getCoinDetails, getHistoricalPriceData };
+const getGlobalMarketData = async () => {
+  try {
+    const response = await cryptoApi.get(`/global`);
+    return response.data; 
+  } catch (error) {
+    console.error("Error fetching global market data:", error);
+    return null;
+  }
+};
+
+export { getCoinMarkets, searchCoins, getCoinDetails, getHistoricalPriceData, getGlobalMarketData };

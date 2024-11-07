@@ -1,29 +1,41 @@
 import { Link } from "react-router-dom";
-import { getCoinMarkets } from "../../api";
+import { getCoinMarkets, getGlobalMarketData } from "../../api";
 import { useState, useEffect } from "react";
 import formatMarketCap from "../Functions/formatMcap";
 import CryptoSearch from "./CryptoSearch";
 
 const Cryptos = () => {
   const [coinMarkets, setCoinMarkets] = useState([]);
+  const [btcDominance, setBtcDominance] = useState(null)
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getCoinMarkets().then((coinMarkets) => {
-      setCoinMarkets(coinMarkets);
-      setIsLoading(false);
-    }),
-      [];
-  });
+    const fetchData = async () => {
+      try {
+        const coinMarketsData = await getCoinMarkets();
+        const globalData = await getGlobalMarketData();
+        
+        setCoinMarkets(coinMarketsData);
+        setBtcDominance(globalData?.data?.market_cap_percentage?.btc);
+
+        setIsLoading(false); 
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
   return isLoading ? (
     <h2>Loading...</h2>
   ) : (
     <div>
+      <h2 className="btc-dominance">BTC Dom: {btcDominance.toFixed(2)}%</h2>
       <div>
         {coinMarkets.map((coin) => {
-          return (
-          <p>{coin.market_cap_percentage}</p>
-          )})}
+          return <p key={coin.id}>{coin.market_cap_percentage}</p>;
+        })}
       </div>
       <CryptoSearch />
       <div className="coins">
