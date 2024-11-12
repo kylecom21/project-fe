@@ -207,3 +207,28 @@ a {
 }
 
 
+/* StatsBox.css */
+.stats-box {
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  color: #fff;
+  margin: 10px 0;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.stat-title {
+  font-weight: bold;
+  color: #aaa;
+}
+
+.stat-value {
+  color: #fff;
+}

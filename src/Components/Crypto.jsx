@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getCoinDetails } from "../../api";
 import formatMarketCap from "../Functions/formatMcap";
 import CryptoChart from "./CryptoChart";
+import Statbox from "./CryptoStatBox";
 
 const Crypto = () => {
   const { id } = useParams();
@@ -55,6 +56,8 @@ const Crypto = () => {
   </div>
   
     <CryptoChart coinId={coinData.id}/>
+
+    <Statbox/>
 
   <button className="buy-button">Buy</button>
 </div>
