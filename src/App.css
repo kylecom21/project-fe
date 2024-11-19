@@ -75,8 +75,8 @@ a {
 }
 
 .coin-item:hover {
-  transform: scale(1.02);
-  background-color: #1E3A4C; /* Darker background on hover */
+  transform: scale(1.01);
+  background-color: #1E3A4C; 
 }
 
 .coin-rank,
@@ -86,12 +86,38 @@ a {
   font-size: 1.1rem;
   color: #E0E0E0;
   font-weight: 500;
-  margin: 0 15px;
+  text-align: center;
 }
 
 .coin-rank {
+  flex: 0 0 10%;
   font-size: 1.3rem;
   font-weight: 700;
+  text-align: center;
+}
+.coin-rank {
+  flex: 0 0 10%;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.coin-name {
+  flex: 0 0 35%; 
+  text-align: center; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.coin-price {
+  flex: 0 0 25%; 
+  text-align: left; 
+}
+
+.coin-marketcap {
+  flex: 0 0 30%;
+  text-align: center; 
 }
 
 .coin-list {
@@ -229,4 +255,32 @@ a {
 
 .stat-value {
   color: #fff;
+}
+
+.btc-dominance-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #1a1a1a, #292929); 
+  border-radius: 12px; 
+  padding: 8px 15px;
+  margin: 10px auto; 
+  max-width: 300px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+}
+
+.btc-dominance-title {
+  font-size: 16px; 
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 4px; 
+  text-transform: uppercase;
+  letter-spacing: 1.2px; 
+}
+
+.btc-dominance-value {
+  font-size: 22px; 
+  font-weight: 600;
+  color: #ffcc00; 
 }

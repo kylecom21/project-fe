@@ -6,7 +6,7 @@ import CryptoSearch from "./CryptoSearch";
 
 const Cryptos = () => {
   const [coinMarkets, setCoinMarkets] = useState([]);
-  const [btcDominance, setBtcDominance] = useState(null)
+  const [btcDominance, setBtcDominance] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -14,11 +14,11 @@ const Cryptos = () => {
       try {
         const coinMarketsData = await getCoinMarkets();
         const globalData = await getGlobalMarketData();
-        
+
         setCoinMarkets(coinMarketsData);
         setBtcDominance(globalData?.data?.market_cap_percentage?.btc);
 
-        setIsLoading(false); 
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
         setIsLoading(false);
@@ -31,7 +31,10 @@ const Cryptos = () => {
     <h2>Loading...</h2>
   ) : (
     <div>
-      <h2 className="btc-dominance">BTC Dom: {btcDominance.toFixed(2)}%</h2>
+      <div className="btc-dominance-container">
+        <h2 className="btc-dominance-title">BTC Dominance</h2>
+        <p className="btc-dominance-value">{btcDominance.toFixed(2)}%</p>
+      </div>
       <div>
         {coinMarkets.map((coin) => {
           return <p key={coin.id}>{coin.market_cap_percentage}</p>;
@@ -51,7 +54,7 @@ const Cryptos = () => {
                   <ul className="coin-list">
                     <li className="coin-rank">{coin.market_cap_rank}</li>
                     <li className="coin-name">{coin.symbol.toUpperCase()}</li>
-                    <li className="coin-price">${coin.current_price}</li>
+                    <li className="coin-price">${coin.current_price.toFixed(2)}</li>
                     <li className="coin-marketcap">
                       {formatMarketCap(coin.market_cap)}
                     </li>
