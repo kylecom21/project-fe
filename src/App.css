@@ -284,3 +284,11 @@ a {
   font-weight: 600;
   color: #ffcc00; 
 }
+
+.chart-container {
+  width: 400px;
+  height: 200px; 
+  margin: 0 auto; 
+  position: relative;
+  left: -15px; 
+}

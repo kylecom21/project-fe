@@ -35,7 +35,7 @@ const CryptoChart = ({ coinId }) => {
               pointBackgroundColor: 'rgba(255, 255, 255, 1)', 
               pointBorderColor: 'rgba(255, 255, 255, 1)', 
               pointRadius: 0.1, 
-              pointHoverRadius: 5,
+              pointHoverRadius: 2,
             }
           ]
         });
@@ -50,7 +50,7 @@ const CryptoChart = ({ coinId }) => {
   if (!chartData) return <p>Loading chart...</p>;
 
   return (
-    <div style={{ width: '100%', height: '200px' }}>
+    <div className="chart-container">
       <Line 
       data={chartData} 
       options={{
@@ -59,7 +59,7 @@ const CryptoChart = ({ coinId }) => {
           x: { title: { display: true, text: 'Date', color: 'white' } },
           y: { title: { display: true, text: 'Price (USD)', color: 'white' }, beginAtZero: false,tick:{
             color:'white',
-            stepSize: 500,
+            stepSize: 10,
           } }
         },
         plugins: {

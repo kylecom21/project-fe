@@ -24,6 +24,12 @@ const Crypto = () => {
 
     fetchCoinData();
   }, [id]);
+  const handleBuyClick = () => {
+    if (coinData) {
+      const buyUrl = `https://www.binance.com/en-GB/trade/${coinData.symbol.toUpperCase()}_USDT?type=spot`;
+      window.open(buyUrl, "_blank"); 
+    }
+  };
   return isLoading ? (
     <h2>Loading...</h2>
   ) : (
@@ -58,8 +64,9 @@ const Crypto = () => {
     <CryptoChart coinId={coinData.id}/>
 
     <Statbox/>
+    
 
-  <button className="buy-button">Buy</button>
+  <button className="buy-button" onClick={handleBuyClick}>Buy</button>
 </div>
   );
 };
