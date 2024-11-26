@@ -70,7 +70,7 @@ const Crypto = () => {
 
       <CryptoChart coinId={coinData.id} />
 
-      <Statbox />
+      <Statbox/>
 
       <button className="buy-button" onClick={handleBuyClick}>
         Buy

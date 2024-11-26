@@ -15,7 +15,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 85vh;
+  height: 61vh;
   text-align: center;
   padding-bottom: 47px;
   border-radius: 10px;
@@ -48,9 +48,9 @@ a {
 
 .scrollable-box {
   width: 85%;
-  height: 60vh;
+  height: 59vh;
   margin: auto;
-  padding: 20px;
+  padding: 18px;
   overflow-y: auto;
   background-color: #333;
   border-radius: 15px;
@@ -189,6 +189,7 @@ a {
   width: 90%; 
   border-radius: 10px;
   text-align: center;
+  margin-top: 5px;
 }
 
 .coin-header {
@@ -230,6 +231,7 @@ a {
   border-radius: 20px;
   cursor: pointer;
   width: 100%;
+  margin-top: 45px;
 }
 
 .stats-box {
@@ -246,6 +248,8 @@ a {
   display: flex;
   justify-content: space-between;
   margin: 5px 0;
+  padding-top: 8px;
+  margin-bottom: 7px;
 }
 
 .stat-title {
@@ -301,7 +305,8 @@ a {
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
-  margin-top: 20px;
+  margin-top: -10px;
+  margin-bottom: 20px;
   align-self:flex-start;
   display: flex;
 }
@@ -309,3 +314,4 @@ a {
 .direction-button:hover {
   background-color: #285A73;
 }
+

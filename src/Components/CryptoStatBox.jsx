@@ -27,33 +27,33 @@ const Statbox = () => {
   ) : (
     <div className="stats-box">
       <div className="stat">
-        <span className="stat-title">24h High</span>
+        <span className="stat-title">24h High:</span>
         <span className="stat-value">${coinData.market_data.high_24h.usd}</span>
       </div>
       <div className="stat">
-        <span className="stat-title">24h Low</span>
+        <span className="stat-title">24h Low:</span>
         <span className="stat-value">${coinData.market_data.low_24h.usd}</span>
       </div>
       <div className="stat">
-        <span className="stat-title">ATH</span>
+        <span className="stat-title">All Time High:</span>
         <span className="stat-value">
           {formatMarketCap(coinData.market_data.ath.usd)}
         </span>
       </div>
       <div className="stat">
-        <span className="stat-title">Circulating Supply</span>
+        <span className="stat-title">Circulating Supply:</span>
         <span className="stat-value">
           {formatMarketCap(coinData.market_data.circulating_supply)}
         </span>
       </div>
       <div className="stat">
-        <span className="stat-title">Total Supply</span>
+        <span className="stat-title">Total Supply:</span>
         <span className="stat-value">
           {formatMarketCap(coinData.market_data.total_supply)}
         </span>
       </div>
       <div className="stat">
-        <span className="stat-title">Market Cap Change (24h)</span>
+        <span className="stat-title">Market Cap Change (24h):</span>
         <span className="stat-value">
           {coinData.market_data.market_cap_change_percentage_24h}%
         </span>
