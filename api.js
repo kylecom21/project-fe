@@ -86,10 +86,12 @@ const fetchTop100Stocks = async () => {
     const response = await axios.get('https://api.polygon.io/v3/reference/tickers', {
       params: {
         market: 'stocks',
+        active: 'true',
         order: 'desc',
-        sort: 'market_cap',
         limit: 100,
-        apiKey: stockApiKey,
+        sort: 'market',
+        apiKey:stockApiKey
+,
       },
     });
     return response.data.results;
