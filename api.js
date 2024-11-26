@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const stockApiKey = 'a4mEt291hmISkZiOyxBV_CMrDaV2Xfup'
+
 const cryptoApi = axios.create({
   baseURL: "https://api.coingecko.com/api/v3",
   headers: {
@@ -79,4 +81,23 @@ const getGlobalMarketData = async () => {
   }
 };
 
-export { getCoinMarkets, searchCoins, getCoinDetails, getHistoricalPriceData, getGlobalMarketData };
+const fetchTop100Stocks = async () => {
+  try {
+    const response = await axios.get('https://api.polygon.io/v3/reference/tickers', {
+      params: {
+        market: 'stocks',
+        order: 'desc',
+        sort: 'market_cap',
+        limit: 100,
+        apiKey: stockApiKey,
+      },
+    });
+    return response.data.results;
+  } catch (error) {
+    console.error('Error fetching top 100 stocks:', error);
+    return [];
+  }
+};
+
+
+export { getCoinMarkets, searchCoins, getCoinDetails, getHistoricalPriceData, getGlobalMarketData, fetchTop100Stocks };
