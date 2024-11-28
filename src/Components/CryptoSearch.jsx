@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { searchCoins } from "../../api";
+import { searchCoins } from "../../api"
 
 const CryptoSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");

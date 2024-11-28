@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const stockApiKey = "a4mEt291hmISkZiOyxBV_CMrDaV2Xfup";
+const polygonApi = "a4mEt291hmISkZiOyxBV_CMrDaV2Xfup";
+const alphaVanageApi = "BNX37GTF0Z04YPIF";
 
 const cryptoApi = axios.create({
   baseURL: "https://api.coingecko.com/api/v3",
@@ -81,41 +82,52 @@ const getGlobalMarketData = async () => {
   }
 };
 
-const fetchSpecificStocks = async (tickers) => {
+const gainersAndLosers = async () => {
   try {
-    // Fetch all stock tickers
-    const response = await axios.get(
-      `https://api.polygon.io/v3/reference/tickers`,
-      {
-        params: {
-          market: "stocks", // Filter for the stocks market
-          active: true, // Only active tickers
-          apiKey: stockApiKey,
-          limit: 1000, // Ensure enough results are returned
-        },
-      }
-    );
-
-    // Filter results to include only the tickers we want
-    const filteredStocks = response.data.results.filter((stock) =>
-      tickers.includes(stock.ticker)
-    );
-
-    return filteredStocks;
+    const response = await axios.get("https://www.alphavantage.co/query", {
+      params: {
+        function: "TOP_GAINERS_LOSERS",
+        apikey: alphaVanageApi,
+      },
+    });
+    if (response.status === 200) {
+      const data = response.data;
+      console.log(data);
+      return data;
+    } else {
+      console.error("Unexpected status code:", response.status);
+    }
   } catch (error) {
-    console.error("Error fetching stock data:", error);
-    return [];
+    console.error("Error fetching top gainers and losers:", error);
   }
 };
 
-export default fetchSpecificStocks;
+const financialNews = async () => {
+  try {
+    const response = await axios.get("https://www.alphavantage.co/query", {
+      params: {
+        function: "NEWS_SENTIMENT",
+        apikey: alphaVanageApi,
+      },
+    });
+    if (response.status === 200) {
+      const data = response.data;
+      console.log(data);
+      return data;
+    } else {
+      console.error("Unexpected status code:", response.status);
+    }
+  } catch (error) {
+    console.error("Error fetching top gainers and losers:", error);
+  }
+}
 
+export default {gainersAndLosers, financialNews}
 
-export {
+export{
   getCoinMarkets,
   searchCoins,
   getCoinDetails,
   getHistoricalPriceData,
   getGlobalMarketData,
-  fetchSpecificStocks,
 };
