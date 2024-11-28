@@ -1,27 +1,29 @@
 import { useEffect, useState } from "react";
-import { fetchTop100Stocks } from "../../api";
+import { fetchSpecificStocks } from "../../api";
 
 const Stocks = () => {
-  const [stockMarket, setStockMarket] = useState([]);
+  const [topStocks, setTopStocks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchStocks = async () => {
-      const topStocks = await fetchTop100Stocks();
-      setStockMarket(topStocks);
+    const tickers = ["AAPL", "NVDA", "MSFT", "AMZN", "GOOG","2222.SR","META","TSLA","BRK-B","AVGO"]
+    const stocks = async () => {
+      const stockData = await fetchSpecificStocks(tickers);
+      setTopStocks(stockData);
       setIsLoading(false);
     };
-    fetchStocks();
+    stocks();
   }, []);
-  return !isLoading ? (
-    <h2>Loading...</h2>
+
+  return isLoading ? (
+    <h2>Loading stocks...</h2>
   ) : (
-    <div>
+    <div className="stocks-list">
       <h2>Stocks</h2>
       <ul>
-        {stockMarket.map((stock) => (
+        {topStocks.map((stock) => (
           <li key={stock.ticker}>
-            <strong>{stock.name}</strong> ({stock.ticker}) 
+            <strong>{stock.ticker}</strong>
           </li>
         ))}
       </ul>

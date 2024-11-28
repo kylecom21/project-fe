@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const stockApiKey = 'a4mEt291hmISkZiOyxBV_CMrDaV2Xfup'
+const stockApiKey = "a4mEt291hmISkZiOyxBV_CMrDaV2Xfup";
 
 const cryptoApi = axios.create({
   baseURL: "https://api.coingecko.com/api/v3",
@@ -74,32 +74,48 @@ const getHistoricalPriceData = async (id, currency = "usd", days = 7) => {
 const getGlobalMarketData = async () => {
   try {
     const response = await cryptoApi.get(`/global`);
-    return response.data; 
+    return response.data;
   } catch (error) {
     console.error("Error fetching global market data:", error);
     return null;
   }
 };
 
-const fetchTop100Stocks = async () => {
+const fetchSpecificStocks = async (tickers) => {
   try {
-    const response = await axios.get('https://api.polygon.io/v3/reference/tickers', {
-      params: {
-        market: 'stocks',
-        active: 'true',
-        order: 'desc',
-        limit: 100,
-        sort: 'market',
-        apiKey:stockApiKey
-,
-      },
-    });
-    return response.data.results;
+    // Fetch all stock tickers
+    const response = await axios.get(
+      `https://api.polygon.io/v3/reference/tickers`,
+      {
+        params: {
+          market: "stocks", // Filter for the stocks market
+          active: true, // Only active tickers
+          apiKey: stockApiKey,
+          limit: 1000, // Ensure enough results are returned
+        },
+      }
+    );
+
+    // Filter results to include only the tickers we want
+    const filteredStocks = response.data.results.filter((stock) =>
+      tickers.includes(stock.ticker)
+    );
+
+    return filteredStocks;
   } catch (error) {
-    console.error('Error fetching top 100 stocks:', error);
+    console.error("Error fetching stock data:", error);
     return [];
   }
 };
 
+export default fetchSpecificStocks;
 
-export { getCoinMarkets, searchCoins, getCoinDetails, getHistoricalPriceData, getGlobalMarketData, fetchTop100Stocks };
+
+export {
+  getCoinMarkets,
+  searchCoins,
+  getCoinDetails,
+  getHistoricalPriceData,
+  getGlobalMarketData,
+  fetchSpecificStocks,
+};
