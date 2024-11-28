@@ -82,7 +82,7 @@ const getGlobalMarketData = async () => {
   }
 };
 
-const gainersAndLosers = async () => {
+ const gainersAndLosers = async () => {
   try {
     const response = await axios.get("https://www.alphavantage.co/query", {
       params: {
@@ -122,12 +122,12 @@ const financialNews = async () => {
   }
 }
 
-export default {gainersAndLosers, financialNews}
-
 export{
   getCoinMarkets,
   searchCoins,
   getCoinDetails,
   getHistoricalPriceData,
   getGlobalMarketData,
+  financialNews,
+  gainersAndLosers
 };

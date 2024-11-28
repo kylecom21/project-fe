@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import gainersAndLosers from "../../api";
+import { useState, useEffect } from "react";
+import {gainersAndLosers} from "../../api";
 
 const GainersAndLosers = () => {
   const [gainers, setGainers] = useState([]);
