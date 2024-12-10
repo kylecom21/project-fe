@@ -103,24 +103,22 @@ const getGlobalMarketData = async () => {
 };
 
 const financialNews = async () => {
+  const apiKey = "ctc5399r01qjor97pgqgctc5399r01qjor97pgr0"; 
   try {
-    const response = await axios.get("https://www.alphavantage.co/query", {
+    const response = await axios.get("https://finnhub.io/api/v1/news", {
       params: {
-        function: "NEWS_SENTIMENT",
-        apikey: alphaVanageApi,
+        category: "general", 
+        token: apiKey,
       },
     });
-    if (response.status === 200) {
-      const data = response.data;
-      console.log(data);
-      return data;
-    } else {
-      console.error("Unexpected status code:", response.status);
-    }
+
+    return response.data; 
   } catch (error) {
-    console.error("Error fetching top gainers and losers:", error);
+    console.error("Error fetching market news:", error);
+    return [];
   }
-}
+};
+
 
 export{
   getCoinMarkets,

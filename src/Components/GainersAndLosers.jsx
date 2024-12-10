@@ -43,8 +43,7 @@ const GainersAndLosers = () => {
           <ul>
             {losers.map((stock, index) => (
                 <li key={index}>
-                  <strong>{stock.ticker}</strong>: ${stock.price} - {stock.percent_change}% (
-                  )
+                  <strong>{stock.ticker}</strong>: ${stock.price} - {stock.change_percentage}%
                 </li>
               ))}
           </ul>
