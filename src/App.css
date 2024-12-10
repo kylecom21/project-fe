@@ -329,12 +329,22 @@ a {
   background-color: #285A73;
 }
 
-.news-section {
+.news-section-box{
   background-color: #2A2A2A;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   padding: 15px;
-  color: #E0E0E0;
+  width: 85%;
+  height: 35vh;
+  margin: auto;
+  padding: 18px;
+  overflow-y: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .news-list {
@@ -391,4 +401,48 @@ a {
 .news-source {
   font-size: 12px;
   color: #AAA;
+}
+
+.gainers-losers-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.gainers-box, .losers-box {
+  background-color: #2A2A2A;
+  color: #E0E0E0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 48%; 
+  padding: 20px;
+}
+
+.gainers-box h3, .losers-box h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.gainers-box ul, .losers-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gainers-box li, .losers-box li {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.gainers-box li:hover, .losers-box li:hover {
+  transform: scale(1.02);
+  background-color: #1E3A4C;
 }

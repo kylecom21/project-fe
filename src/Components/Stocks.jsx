@@ -5,7 +5,6 @@ import FinancialNews from "./FinancialNews";
 const Stocks = () => {
   return (
     <div>
-      <h1>Stocks Homepage</h1>
       <GainersAndLosers />
       <FinancialNews />
     </div>

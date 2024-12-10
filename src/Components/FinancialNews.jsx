@@ -18,8 +18,7 @@ const FinancialNews = () => {
   return isLoading ? (
     <h2>Loading news...</h2>
   ) : (
-    <div className="scrollable-box news-section">
-      <h2>Top Financial News</h2>
+    <div className="news-section-box">
       <ul className="news-list">
         {news.map((article, index) => (
           <li key={index} className="news-item">
