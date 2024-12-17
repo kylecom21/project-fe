@@ -119,6 +119,27 @@ const financialNews = async () => {
   }
 };
 
+const searchStocks = async (query) => {
+    if (!query || query.length < 3) {
+      return []; 
+    }
+  
+    try {
+      const response = await axios.get("https://api.polygon.io/v3/reference/tickers", {
+        params: {
+          query: query,
+          active: true,
+          apiKey: "a4mEt291hmISkZiOyxBV_CMrDaV2Xfup",
+        },
+      });
+  
+      return response.data.results || [];
+    } catch (error) {
+      console.error("Error fetching search results:", error);
+      return [];
+    }
+  };
+
 
 export{
   getCoinMarkets,
@@ -127,5 +148,6 @@ export{
   getHistoricalPriceData,
   getGlobalMarketData,
   financialNews,
-  gainersAndLosers
+  gainersAndLosers,
+  searchStocks
 };

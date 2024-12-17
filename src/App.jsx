@@ -5,6 +5,7 @@ import Home from './Components/Home'
 import Cryptos from './Components/Cryptos'
 import Stocks from './Components/Stocks'
 import Crypto from './Components/Crypto'
+import Stock from './Components/Stock'
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/crypto' element={<Cryptos/>} />
-        <Route path='/crypto/:id' element={<Crypto/>}></Route>
+        <Route path='/crypto/:id' element={<Crypto/>} />
         <Route path='/stocks' element={<Stocks/>} />
+        <Route path='stocks/:ticker' element={<Stock/>}/>
       </Routes>
     </div>
   )
