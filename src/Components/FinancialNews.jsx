@@ -8,7 +8,7 @@ const FinancialNews = () => {
   useEffect(() => {
     const getNews = async () => {
       const newsData = await financialNews();
-      setNews(newsData.slice(0, 3));
+      setNews(newsData.slice(0, 5));
       setIsLoading(false);
     };
 
