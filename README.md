@@ -19,6 +19,7 @@ Stock Market Features:
 - Search Functionality: Quickly find stock details by entering the ticker symbol or company name.
 - Top Gainers and Losers: Displays the top 3 market gainers and losers for the day.
 - Stock Details Page: Provides detailed financial metrics for individual stocks.
+- Financial News: Latest financial news.
 
 Cryptocurrency Features:
 
@@ -26,3 +27,21 @@ Cryptocurrency Features:
 - Bitcoin Dominance Tracker: Shows the percentage dominance of Bitcoin in the cryptocurrency market.
 - Crypto Details Page: Detailed page for individual cryptocurrencies, showing metrics such as market cap, price, and 24-hour volume.
 - Scrollable List: View a scrollable list of cryptocurrencies with live price updates.
+
+## Installation
+
+Follow these steps to set up the project locally:
+
+- Clone the repository:
+
+        git clone https://github.com/kylecom21/project-fe.git
+
+- Navigate to the project directory:
+
+        cd project-fe
+
+- Install dependencies:
+
+        npm install
+
+- Create a .env file in the root directory and add your API keys:
