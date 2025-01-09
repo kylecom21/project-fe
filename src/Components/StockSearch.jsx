@@ -53,13 +53,6 @@ const StockSearch = () => {
             </li>
           ))}
         </ul>
-        <button onClick={handleButtonClick} className="search-button">
-        <img
-          src="src/imgs/search-icon.png"
-          alt="Search"
-          className="search-icon"
-        />
-      </button>
       </div>
     );
 }
