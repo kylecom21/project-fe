@@ -409,7 +409,7 @@ a {
   align-items: flex-start;
   margin: 0px auto;
   max-width: 1200px;
-  padding: 10px;
+  padding: 20px;
   gap: 20px;
 }
 
@@ -447,3 +447,31 @@ a {
   background-color: #1E3A4C;
 }
 
+.stock-search-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.stock-search-input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #444;
+  font-size: 16px;
+  outline: none;
+  background-color: #2A2A2A;
+  color: #E0E0E0;
+  margin-bottom: 10px;
+}
+
+.stock-search-results{
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+  width: 100%; 
+  text-align: left;
+}

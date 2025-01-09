@@ -45,3 +45,8 @@ Follow these steps to set up the project locally:
         npm install
 
 - Create a .env file in the root directory and add your API keys:
+
+        POLYGON_API_KEY = your_polygon_api_key
+        ALPHA_VANTAGE_API_KEY = your_alpha_vantage_api
+        FINNHUB_API_KEY = your_finnhub-api_key
+        COINGECKO_API_KEY = your_coingecko_api_key

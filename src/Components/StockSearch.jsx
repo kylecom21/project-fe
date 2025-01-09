@@ -37,22 +37,29 @@ const StockSearch = () => {
     };
   
     return (
-      <div className="search-container">
+      <div className="stock-search-container">
         <input
           type="text"
           value={searchTerm}
           onChange={handleSearch}
           placeholder="Search for a stock..."
-          className="search-input"
+          className="stock-search-input"
         />
         {isLoading && <p>Loading...</p>}
-        <ul className="search-results">
+        <ul className="stock-search-results">
           {results.map((stock, index) => (
             <li key={index} onClick={() => handleSelectStock(stock.ticker)}>
               {stock.ticker} - {stock.name}
             </li>
           ))}
         </ul>
+        <button onClick={handleButtonClick} className="search-button">
+        <img
+          src="src/imgs/search-icon.png"
+          alt="Search"
+          className="search-icon"
+        />
+      </button>
       </div>
     );
 }
