@@ -82,7 +82,7 @@ const getGlobalMarketData = async () => {
   }
 };
 
- const gainersAndLosers = async () => {
+const gainersAndLosers = async () => {
   try {
     const response = await axios.get("https://www.alphavantage.co/query", {
       params: {
@@ -102,16 +102,16 @@ const getGlobalMarketData = async () => {
 };
 
 const financialNews = async () => {
-  const apiKey = "ctc5399r01qjor97pgqgctc5399r01qjor97pgr0"; 
+  const apiKey = "ctc5399r01qjor97pgqgctc5399r01qjor97pgr0";
   try {
     const response = await axios.get("https://finnhub.io/api/v1/news", {
       params: {
-        category: "general", 
+        category: "general",
         token: apiKey,
       },
     });
 
-    return response.data; 
+    return response.data;
   } catch (error) {
     console.error("Error fetching market news:", error);
     return [];
@@ -119,43 +119,46 @@ const financialNews = async () => {
 };
 
 const searchStocks = async (query) => {
-    if (!query || query.length < 3) {
-      return []; 
-    }
-  
-    try {
-      const response = await axios.get("https://api.polygon.io/v3/reference/tickers", {
+  if (!query || query.length < 3) {
+    return [];
+  }
+
+  try {
+    const response = await axios.get(
+      "https://api.polygon.io/v3/reference/tickers",
+      {
         params: {
           query: query,
           active: true,
           apiKey: "a4mEt291hmISkZiOyxBV_CMrDaV2Xfup",
         },
-      });
-  
-      return response.data.results || [];
-    } catch (error) {
-      console.error("Error fetching search results:", error);
-      return [];
-    }
-  };
+      }
+    );
 
-  const stockDetails = async (id) => {
-    try {
-      const response = await axios.get(`https://api.polygon.io/v1/meta/symbols/${id}/company`, 
+    return response.data.results || [];
+  } catch (error) {
+    console.error("Error fetching search results:", error);
+    return [];
+  }
+};
+
+const getStockName = async (id) => {
+  try {
+    const response = await axios.get(
+      `https://api.polygon.io/v1/meta/symbols/${id}/company`,
       {
         params: {
           apiKey: "a4mEt291hmISkZiOyxBV_CMrDaV2Xfup",
         },
-      });
-      return response.data
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching results:", error);
   }
-  catch (error) {
-    console.error("Error fetching search results:", error)
-  }
-}
+};
 
-
-export{
+export {
   getCoinMarkets,
   searchCoins,
   getCoinDetails,
@@ -164,5 +167,5 @@ export{
   financialNews,
   gainersAndLosers,
   searchStocks,
-  stockDetails
+  getStockName,
 };

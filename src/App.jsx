@@ -16,7 +16,7 @@ function App() {
         <Route path='/crypto' element={<Cryptos/>} />
         <Route path='/crypto/:id' element={<Crypto/>} />
         <Route path='/stocks' element={<Stocks/>} />
-        <Route path='stocks/:ticker' element={<Stock/>}/>
+        <Route path='stocks/:id' element={<Stock/>}/>
       </Routes>
     </div>
   )
