@@ -92,7 +92,6 @@ const getGlobalMarketData = async () => {
     });
     if (response.status === 200) {
       const data = response.data;
-      console.log(data);
       return data;
     } else {
       console.error("Unexpected status code:", response.status);
@@ -140,6 +139,21 @@ const searchStocks = async (query) => {
     }
   };
 
+  const stockDetails = async (id) => {
+    try {
+      const response = await axios.get(`https://api.polygon.io/v1/meta/symbols/${id}/company`, 
+      {
+        params: {
+          apiKey: "a4mEt291hmISkZiOyxBV_CMrDaV2Xfup",
+        },
+      });
+      return response.data
+  }
+  catch (error) {
+    console.error("Error fetching search results:", error)
+  }
+}
+
 
 export{
   getCoinMarkets,
@@ -149,5 +163,6 @@ export{
   getGlobalMarketData,
   financialNews,
   gainersAndLosers,
-  searchStocks
+  searchStocks,
+  stockDetails
 };

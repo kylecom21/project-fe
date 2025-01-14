@@ -32,7 +32,7 @@ const StockSearch = () => {
     }
   
     const handleSelectStock = (ticker) => {
-      navigate(`/stocks?ticker=${ticker}`);
+      navigate(`/stocks/${ticker}`);
     };
   
     return (
