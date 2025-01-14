@@ -17,7 +17,6 @@ const StockSearch = () => {
         try {
           const stocks = await searchStocks(query);
     
-          // Filter only relevant results containing the query
           const filteredStocks = stocks.filter((stock) =>
             stock.ticker.toLowerCase().includes(query.toLowerCase())
           );
@@ -46,6 +45,7 @@ const StockSearch = () => {
           className="stock-search-input"
         />
         {isLoading && <p>Loading...</p>}
+        {searchTerm && results.length > 0 && (
         <ul className="stock-search-results">
           {results.map((stock, index) => (
             <li key={index} onClick={() => handleSelectStock(stock.ticker)}>
@@ -53,6 +53,7 @@ const StockSearch = () => {
             </li>
           ))}
         </ul>
+        )}
       </div>
     );
 }
