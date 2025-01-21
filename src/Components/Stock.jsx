@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getStockDetails, getStockStats } from "../../api";
 import formatMarketCap from "../Functions/formatMcap";
+import StockChart from "./StockChart";
 
 const Stock = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [stockDetails, setStockDetails] = useState(null);
   const [stockStats, setStockStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +28,6 @@ const Stock = () => {
     };
     fetchStock();
   }, [id]);
-
   const handleBackClick = () => {
     navigate(-1);
   };
@@ -66,6 +67,7 @@ const Stock = () => {
           {formatMarketCap(stockStats.v)}
         </p>
       </div>
+      <StockChart id={id}/>
     </div>
   );
 };

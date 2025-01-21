@@ -174,6 +174,34 @@ const getStockStats = async (id) => {
   }
 };
 
+const getStockChartData = async (id) => {
+  const endDate = new Date();
+  const startDate = new Date();
+  startDate.setDate(endDate.getDate() - 7);
+
+  const formatDate = (date) =>
+    date.toISOString().split("T")[0]; // Format as YYYY-MM-DD
+
+  try {
+    const response = await axios.get(
+      `https://api.polygon.io/v2/aggs/ticker/${id}/range/1/day/${formatDate(
+        startDate
+      )}/${formatDate(endDate)}`,
+      {
+        params: {
+          adjusted: true,
+          sort: "asc",
+          apiKey: "a4mEt291hmISkZiOyxBV_CMrDaV2Xfup",
+        },
+      }
+    );
+    return response.data.results; 
+  } catch (error) {
+    console.error("Error fetching chart data:", error);
+    return [];
+  }
+};
+
 export {
   getCoinMarkets,
   searchCoins,
@@ -184,5 +212,6 @@ export {
   gainersAndLosers,
   searchStocks,
   getStockDetails,
-  getStockStats
+  getStockStats,
+  getStockChartData
 };
