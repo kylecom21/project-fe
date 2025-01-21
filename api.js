@@ -142,10 +142,26 @@ const searchStocks = async (query) => {
   }
 };
 
-const getStockName = async (id) => {
+const getStockDetails = async (id) => {
   try {
     const response = await axios.get(
-      `https://api.polygon.io/v1/meta/symbols/${id}/company`,
+      `https://api.polygon.io/v3/reference/tickers/${id}`,
+      {
+        params: {
+          apiKey: "a4mEt291hmISkZiOyxBV_CMrDaV2Xfup",
+        },
+      }
+    );
+    return response.data.results
+  } catch (error) {
+    console.error("Error fetching results:", error);
+  }
+};
+
+const getStockStats = async (id) => {
+  try {
+    const response = await axios.get(
+      `https://api.polygon.io/v2/aggs/ticker/${id}/prev`,
       {
         params: {
           apiKey: "a4mEt291hmISkZiOyxBV_CMrDaV2Xfup",
@@ -167,5 +183,6 @@ export {
   financialNews,
   gainersAndLosers,
   searchStocks,
-  getStockName,
+  getStockDetails,
+  getStockStats
 };
